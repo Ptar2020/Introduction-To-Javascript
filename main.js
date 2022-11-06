@@ -1,32 +1,40 @@
-//Show next, prev buttons on hover
+//Showhide next, prev buttons on mouseenter/leave
 window.onload = function()
 {
-  var item = document.getElementsByClassName('butt');
+  var prev = document.getElementById('prev');
+  var next = document.getElementById('next');
   var img = document.getElementsByClassName('img');
   var i = 0;
-  var j = 0;
   for (i; i < img.length; i++)
   {
     //Handles mouse enter
     img[i].addEventListener('mouseover', function(){
-      for (j; j < item.length; j++){
-        item[j].style.display = 'block';
-        this.addEventListener('mouseover', function(){
+        prev.style.display = 'block';
+        next.style.display = 'block';
+        prev.addEventListener('mouseover', function(){
           this.style.display = 'block';
+          //Also show the next button
+          next.style.display = 'block';
         });
-      };
+        next.addEventListener('mouseover', function(){
+          this.style.display = 'block';
+          //Also show the prev button
+          prev.style.display = 'block';
+        });
     });
     // Handles mouse leave
     img[i].addEventListener('mouseout', function()
     {
-      for (j; j < item.length; j++)
-      {
-        item[j].style.display = 'none';
-        item[j].addEventListener('mouseout', function()
+        prev.style.display = 'none';
+        next.style.display = 'none';
+        prev.addEventListener('mouseout', function()
         {
-          item[j].style.display = 'none';
+          this.style.display = 'none';
         });
-      };
+        next.addEventListener('mouseout', function()
+        {
+          this.style.display = 'none';
+        });
     });
   };
 };

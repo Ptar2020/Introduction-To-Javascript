@@ -47,9 +47,12 @@ img
 {
     right:0;
 }
+#prev, #next
+{
+    display: none;
+}
 .prev, .next
 {
-    display:none;
     cursor: pointer;
     position: absolute;
     top: 50%;
